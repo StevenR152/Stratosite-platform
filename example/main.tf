@@ -1,5 +1,5 @@
 module "stratosite_framework" {
-  source = "./stratosite-framework"
+  source = "../"
   website_domain_name = "website5425259.com"
 }
 
