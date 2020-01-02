@@ -9,7 +9,10 @@ resource "aws_route53_record" "primary" {
   type    = "A"
 
   alias {
-    name                   = "${var.s3_website_endpoint}"
+    name                   = "s3-website.${var.region}.amazonaws.com" 
+
+    # IS http://www.inkyglow.com.s3-website.eu-central-1.amazonaws.com./ 
+    # Needs to be: s3-website.eu-central-1.amazonaws.com
     zone_id                = "${var.s3_website_hosted_zone_id}"
     evaluate_target_health = false
   }
@@ -21,7 +24,7 @@ resource "aws_route53_record" "www" {
   type    = "A"
 
   alias {
-    name                   = "${var.s3_website_subdomain_endpoint}"
+    name                   = "s3-website.${var.region}.amazonaws.com" 
     zone_id                = "${var.s3_website_hosted_zone_id}"
     evaluate_target_health = false
   }
