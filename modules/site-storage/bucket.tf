@@ -1,6 +1,7 @@
 resource "aws_s3_bucket" "website_bucket" {
   bucket = "${var.website_domain_name}"
   force_destroy = true
+  region = var.region
   website {
     index_document = "index.html"
     error_document = "error.html"
@@ -9,6 +10,7 @@ resource "aws_s3_bucket" "website_bucket" {
 
 resource "aws_s3_bucket" "www_subdomain_website_bucket" {
   bucket = "${local.website_subdomain}"
+  region = var.region
   force_destroy = true
   website {
     redirect_all_requests_to = "${var.website_domain_name}"

@@ -11,7 +11,7 @@ jobs:
           command: sudo pip install awscli
       - run:
           name: Deploy to S3 bucket
-          command: aws s3 sync ./website s3://website5425259.com/ 
+          command: aws s3 sync ./website s3://website5425252.com/ 
 
 workflows:
   version: 2

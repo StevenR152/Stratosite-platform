@@ -1,5 +1,6 @@
 module "site_storage" {
   source = "./modules/site-storage"
+  region = var.region
   website_domain_name = var.website_domain_name
 }
 
@@ -8,9 +9,10 @@ output "site_storage" {
 }
 
 module "site_domain" {
-  region = var.region
   source = "./modules/site-domain"
+  region = var.region
   website_domain_name = var.website_domain_name
+  s3_website_domain = module.site_storage.s3_website_domain
   s3_website_endpoint = module.site_storage.s3_website_endpoint
   s3_website_hosted_zone_id = module.site_storage.s3_website_hosted_zone_id
   s3_website_subdomain_endpoint = module.site_storage.s3_website_subdomain_endpoint

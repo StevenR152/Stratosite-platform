@@ -8,6 +8,11 @@ variable "website_domain_name" {
   description = "The domain of the website - used for bucket and R53 rules."
 }
 
+variable "s3_website_domain" {
+  type = "string"
+  description = "The domain of the website"
+}
+
 variable "s3_website_endpoint" {
   type = "string"
   description = "The S3 bucket endpoint from website hosting settings"
