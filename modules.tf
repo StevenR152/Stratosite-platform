@@ -22,6 +22,17 @@ output "site_domain" {
   value = module.site_domain
 }
 
+module "site_email" {
+  source = "./modules/site-email"
+  region = var.region
+  website_domain_name = var.website_domain_name
+  website_zone_id = module.site_domain.website_zone_id
+}
+
+output "site_email" {
+  value = module.site_email
+}
+
 module "site_deployment" {
   source = "./modules/site-deployment"
   website_domain_name = var.website_domain_name
