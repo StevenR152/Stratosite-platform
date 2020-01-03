@@ -8,6 +8,8 @@ output "site_storage" {
   value = module.site_storage
 }
 
+
+///----------------------------------------------------------///
 module "site_domain" {
   source = "./modules/site-domain"
   region = var.region
@@ -22,6 +24,16 @@ output "site_domain" {
   value = module.site_domain
 }
 
+///----------------------------------------------------------///
+module "site_cdn" {
+  source = "./modules/site-cdn"
+  region = var.region
+  website_domain_name = var.website_domain_name
+  website_subdomain_name = local.website_subdomain_name 
+  website_endpoint = module.site_storage.s3_website_regional_domain_name
+}
+
+///----------------------------------------------------------///
 module "site_email" {
   source = "./modules/site-email"
   region = var.region
@@ -33,6 +45,7 @@ output "site_email" {
   value = module.site_email
 }
 
+///----------------------------------------------------------///
 module "site_deployment" {
   source = "./modules/site-deployment"
   website_domain_name = var.website_domain_name

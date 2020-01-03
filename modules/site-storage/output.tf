@@ -14,3 +14,6 @@ output "s3_website_domain" {
   value = "${aws_s3_bucket.www_subdomain_website_bucket.website_domain }"
 }
 
+output "s3_website_regional_domain_name" {
+  value = "${aws_s3_bucket.website_bucket.bucket_regional_domain_name}"
+}
