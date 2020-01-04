@@ -17,3 +17,8 @@ variable "website_endpoint" {
   type = "string"
   description = "the S3 bucket website endpoint"
 }
+
+variable "certificate_arn" {
+  type = "string"
+  description = "The arn of the domain ssl certificate."
+}

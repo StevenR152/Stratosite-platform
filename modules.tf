@@ -31,8 +31,23 @@ module "site_cdn" {
   website_domain_name = var.website_domain_name
   website_subdomain_name = local.website_subdomain_name 
   website_endpoint = module.site_storage.s3_website_regional_domain_name
+  certificate_arn = module.site_certificates.certificate_arn
 }
 
+output "site_cdn" {
+  value = module.site_cdn
+}
+
+///----------------------------------------------------------///
+module "site_certificates" {
+  source = "./modules/site-certificates"
+  region = var.region
+  website_domain_name = var.website_domain_name
+}
+
+output "site_certificates" {
+  value = module.site_certificates
+}
 ///----------------------------------------------------------///
 module "site_email" {
   source = "./modules/site-email"
