@@ -31,7 +31,11 @@ module "site_cdn" {
   website_domain_name = var.website_domain_name
   website_subdomain_name = local.website_subdomain_name 
   website_endpoint = module.site_storage.s3_website_regional_domain_name
+  website_zone_id = module.site_domain.website_zone_id
   certificate_arn = module.site_certificates.certificate_arn
+  certificate_record_name = module.site_certificates.certificate_record_name
+  certificate_record_type = module.site_certificates.certificate_record_type
+  certificate_record_value = module.site_certificates.certificate_record_value
 }
 
 output "site_cdn" {
