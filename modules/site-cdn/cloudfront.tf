@@ -27,7 +27,7 @@ resource "aws_cloudfront_distribution" "website_cdn" {
   #   prefix          = "myprefix"
   # }
 
-  aliases = ["${var.website_domain_name}", "${var.website_subdomain_name}"]
+  aliases = ["${var.website_domain_name}"] #, "${var.website_subdomain_name}"]
 
   default_cache_behavior {
     allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
@@ -96,10 +96,10 @@ resource "aws_cloudfront_distribution" "website_cdn" {
   price_class = "PriceClass_200"
 
   restrictions {
-    geo_restriction {
-      restriction_type = "whitelist"
-      locations        = ["US", "GB", "AU"]
-    }
+    # geo_restriction {
+    #   restriction_type = "whitelist"
+    #   locations        = ["US", "GB", "AU"]
+    # }
   }
 
   viewer_certificate {
