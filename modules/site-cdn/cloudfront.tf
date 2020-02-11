@@ -43,7 +43,7 @@ resource "aws_cloudfront_distribution" "website_cdn" {
 
   restrictions {
     geo_restriction {
-      restriction_type = "blacklist"
+      restriction_type = "none"
       locations        = []
     }
   }

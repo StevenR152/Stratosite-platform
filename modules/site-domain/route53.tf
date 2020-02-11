@@ -8,8 +8,8 @@ resource "aws_route53_record" "primary" {
   type    = "A"
 
   alias {
-    name                   = var.s3_website_domain
-    zone_id                = var.s3_website_hosted_zone_id
+    name                   = var.cdn_domain_name
+    zone_id                = var.cdn_hosted_zone_id
     evaluate_target_health = false
   }
 }
@@ -19,6 +19,7 @@ resource "aws_route53_record" "www" {
   name    = local.website_subdomain
   type    = "A"
 
+  // FOr now not HTTPS redirect on www.XYZ.com change to https.
   alias {
     name                   = var.s3_website_domain
     zone_id                = var.s3_website_hosted_zone_id

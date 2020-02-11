@@ -14,6 +14,8 @@ module "site_domain" {
   source = "./modules/site-domain"
   region = var.region
   website_domain_name = var.website_domain_name
+  cdn_domain_name = module.site_cdn.cdn_domain_name
+  cdn_hosted_zone_id = module.site_cdn.cdn_hosted_zone_id
   s3_website_domain = module.site_storage.s3_website_domain
   s3_website_endpoint = module.site_storage.s3_website_endpoint
   s3_website_hosted_zone_id = module.site_storage.s3_website_hosted_zone_id
