@@ -3,6 +3,16 @@ variable "region" {
   description = "Region your website lives in within S3"
 }
 
+variable "cdn_domain_name" {
+  type = "string"
+  description = "The domain name of cloudfront setup."
+}
+
+variable "cdn_hosted_zone_id" {
+  type = "string"
+  description = "The hosted zone id of the cloudfront distribution"
+}
+
 variable "website_domain_name" {
   type = "string"
   description = "The domain of the website - used for bucket and R53 rules."
